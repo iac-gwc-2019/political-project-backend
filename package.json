@@ -1,0 +1,19 @@
+{
+  "name": "political-project-backend",
+  "version": "1.0.0",
+  "description": "Project for GWC @ IAC summer 2019 internship",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iac-gwc-2019/political-project-backend.git"
+  },
+  "author": "GWC Interns 2019",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iac-gwc-2019/political-project-backend/issues"
+  },
+  "homepage": "https://github.com/iac-gwc-2019/political-project-backend#readme"
+}
