@@ -1,12 +1,18 @@
-# schemas.js
+// schemas.js
 
 const typeDefs = gql`
 {
+    enum Party{
+	DEMOCRAT
+	INDEPENDENT
+	REPUBLICAN
+    }
+    
     type Bill{
-	id: String!
-	title: String!
-	summary: String!
-	primarySubject: String!
+	id: String
+	title: String
+	summary: String
+	primarySubject: String
 	lastActionDate: DateTime
 	lastActionDescription: String
 	sponsor: [Person]
@@ -17,7 +23,8 @@ const typeDefs = gql`
 	name: String
 	party: Party
 	state: String
-	website: [Address]
+	website: String
+	address: [Address]
 	phone: String
     }
     
@@ -34,6 +41,6 @@ const typeDefs = gql`
     }
 
     type Query{
-	
+	bills: [Bills]
     }
 }
