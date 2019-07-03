@@ -3,4 +3,4 @@ A webapp created to bring awareness to various issues and create a change within
 
 Features
 - Search for political issues and bills.
-- Locate and contact politicians in your community. 
+- Locate and contact politicians in your community.
