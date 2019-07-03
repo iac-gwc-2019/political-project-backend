@@ -1,6 +1,7 @@
 // schemas.js
+const { gql } = require('apollo-server-express');
 
-const typeDefs = gql`
+module.exports = gql`
 {
     enum Party{
 	DEMOCRAT
@@ -41,7 +42,7 @@ const typeDefs = gql`
     }
 
     type Query{
-	bills: [Bills]
+	subject(query: String): [Subject]
     }
 }
 
