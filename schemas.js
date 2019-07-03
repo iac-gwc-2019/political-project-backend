@@ -7,7 +7,7 @@ const typeDefs = gql`
 	INDEPENDENT
 	REPUBLICAN
     }
-    
+
     type Bill{
 	id: String
 	title: String
@@ -27,7 +27,7 @@ const typeDefs = gql`
 	address: [Address]
 	phone: String
     }
-    
+
     type Address{
 	street: String
 	city: String
@@ -44,3 +44,8 @@ const typeDefs = gql`
 	bills: [Bills]
     }
 }
+
+export const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
