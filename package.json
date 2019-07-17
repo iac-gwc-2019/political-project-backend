@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/iac-gwc-2019/political-project-backend#readme",
   "dependencies": {
-    "apollo-server": "^2.6.7",
+    "apollo-server": "^2.7.0",
     "cross-fetch": "^3.0.4",
-    "graphql": "^14.4.1",
+    "graphql": "^14.4.2",
+    "node-fetch": "^2.6.0",
+    "relay-local-schema": "^0.8.0",
     "request": "^2.88.0"
   }
 }

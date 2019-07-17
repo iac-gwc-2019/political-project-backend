@@ -1,52 +1,57 @@
 // schemas.js
-const { gql } = require('apollo-server-express');
+const { ApolloServer, gql } = require('apollo-server');
 
-module.exports = gql`
+export default gql`
 {
     enum Party{
-	DEMOCRAT
-	INDEPENDENT
-	REPUBLICAN
+		DEMOCRAT
+		INDEPENDENT
+		REPUBLICAN
     }
 
     type Bill{
-	id: String
-	title: String
-	summary: String
-	primarySubject: String
-	lastActionDate: DateTime
-	lastActionDescription: String
-	sponsor: [Person]
+		id: String
+		title: String
+		summary: String
+		primarySubject: String
+		lastActionDate: DateTime
+		lastActionDescription: String
+		sponsor: [Person]
     }
 
     type Person{
-	id: String
-	name: String
-	party: Party
-	state: String
-	website: String
-	address: [Address]
-	phone: String
+		id: String
+		name: String
+		party: Party
+		state: String
+		website: String
+		address: [Address]
+		phone: String
     }
 
     type Address{
-	street: String
-	city: String
-	state: String
-	zip: String
+		street: String
+		city: String
+		state: String
+		zip: String
     }
 
     type Subject{
-	name: String
-	bills: [Bill]
+		name: String
+		bills: [Bill]
     }
 
     type Query{
-	subject(query: String): [Subject]
-    }
+		bills: [Bill]
+		bills(id: ID): Bill
+		subject: [Subject]
+		person: [Person]
+		person(name: string): Person
+	}
 }
 
 export const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
-});
+})`
+
