@@ -43,6 +43,7 @@ module.exports = gql`
 
     type Query{
 	subject(query: String): [Subject]
+  feed(filter: String): [Link!]!
     }
 }
 
