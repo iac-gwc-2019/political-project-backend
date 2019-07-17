@@ -1,3 +1,6 @@
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
 // schemas.js
 const { gql } = require('apollo-server-express');
 
@@ -41,13 +44,25 @@ module.exports = gql`
 	bills: [Bill]
     }
 
-    type Query{
-	subject(query: String): [Subject]
-  feed(filter: String): [Link!]!
-    }
+
+}
+
+enum LinkOrderByInput {
+  fullName_ASC
+  fullName_DESC
+  party_ASC
+  party_DESC
+  state_ASC
+  state_DESC
 }
 
 export const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
-});
+}
+var app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));

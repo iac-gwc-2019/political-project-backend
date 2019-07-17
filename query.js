@@ -1,13 +1,27 @@
 async function feed(parent, args, context, info) {
   const where = args.filter ? {
     OR: [
-      { description_contains: args.filter },
-      { url_contains: args.filter },
+      { fullName_contains: args.filter },
+      { party_contains: args.filter },
+      { state_contains: args.filter },
     ],
   } : {}
 
   const links = await context.prisma.links({
-    where
+      where,
+      skip: args.skip,
+      first: args.first
+    })
+    return links
+  }}
+  const count = await context.prisma
+  .linksConnection({
+    where,
   })
-  return links
+  .aggregate()
+  .count()
+return {
+  links,
+  count,
+}
 }
