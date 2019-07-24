@@ -1,18 +1,18 @@
-    enum Party{
-		DEMOCRAT
-		INDEPENDENT
-		REPUBLICAN
-    }
+enum Party{
+	DEMOCRAT
+	INDEPENDENT
+	REPUBLICAN
+}
 
-    type Bill{
-		id: String
-		title: String
-		summary: String
-		primarySubject: String
-		lastActionDate: DateTime
-		lastActionDescription: String
-		sponsor: [Person]
-    }
+type Bill{
+	id: String
+	title: String
+	summary: String
+	primarySubject: String
+	lastActionDate: DateTime
+	lastActionDescription: String
+	sponsor: [Person]
+}
 
     type Person{
 		id: String

@@ -1,8 +1,8 @@
 // index.js
-import { ApolloServer } from 'apollo-server';
-import fetch from 'node-fetch';
+const { GraphQLServer } = require('graphql-yoga')
+const fetch = require('node-fetch')
 
-const baseURL = `https://api.propublica.org/congress/v1`;
+const baseURL = `https://api.propublica.org/congress/v1`
 
 const resolvers = {
     Query: {
@@ -55,9 +55,9 @@ const resolvers = {
     },
   }
 
-  const server = new ApolloServer({
+  const server = new GraphQLServer({
     typeDefs: './schema.graphql',
-    resolvers 
+    resolvers,
   })
 
-  server.start(() => console.log(`Server is running on http://localhost:4000`)) ?
+  server.start(() => console.log(`Server is running on http://localhost:4000`))
