@@ -38,6 +38,9 @@ type Bill{
     type Query{
 		bills: Bill
 		bill(id:ID): Bill
+		billsBySubject: Bill
 		subject: Subject
 		person: Person
+		personSenate: Person
+		personHouse: Person
 	}

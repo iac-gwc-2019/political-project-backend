@@ -21,22 +21,22 @@ const resolvers = {
         })
         .then(res => res.json())
       },
-      // bills: () => {
-      //   return fetch(`${baseURL}/bills/subjects/${subject}`, {
-      //     method: 'GET',
-      //     headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
-      //   })
-      //   .then(res => res.json())
-      // },
+      billsBySubject: () => {
+        return fetch(`${baseURL}/bills/subjects/${subject}`, {
+          method: 'GET',
+          headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
+        })
+        .then(res => res.json())
+      },
       // person separated into house and senate
-      person: () => {
+      personSenate: () => {
         return fetch(`${baseURL}/115/senate/members`, {
           method: 'GET',
           headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
         })
       .then(res => res.json())
       },
-      person: () => {
+      personHouse: () => {
         return fetch(`${baseURL}/115/house/members`, {
           method: 'GET',
           headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
