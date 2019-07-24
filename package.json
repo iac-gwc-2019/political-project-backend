@@ -4,6 +4,7 @@
   "description": "Project for GWC @ IAC summer 2019 internship",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +19,14 @@
   "homepage": "https://github.com/iac-gwc-2019/political-project-backend#readme",
   "dependencies": {
     "apollo-server": "^2.7.0",
+    "apollo-server-express": "^2.7.0",
     "cross-fetch": "^3.0.4",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
     "graphql": "^14.4.2",
-    "node-fetch": "^2.6.0",
     "relay-local-schema": "^0.8.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "graphql-yoga": "^1.18.1",
+    "node-fetch": "^2.6.0"
   }
 }

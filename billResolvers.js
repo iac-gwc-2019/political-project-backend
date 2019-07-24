@@ -1,63 +1,8 @@
 // billResolvers.js
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer } from 'apollo-server';
 import fetch from 'node-fetch';
 
 const baseURL = `https://api.propublica.org/congress/v1`;
-
-const typeDefs = gql`
-{
-    enum Party{
-		DEMOCRAT
-		INDEPENDENT
-		REPUBLICAN
-    }
-
-    type Bill{
-		id: String
-		title: String
-		summary: String
-		primarySubject: String
-		lastActionDate: DateTime
-		lastActionDescription: String
-		sponsor: [Person]
-    }
-
-    type Person{
-		id: String
-		name: String
-		party: Party
-		state: String
-		website: String
-		address: [Address]
-		phone: String
-    }
-
-    type Address{
-		street: String
-		city: String
-		state: String
-		zip: String
-    }
-
-    type Subject{
-		name: String
-		bills: [Bill]
-    }
-
-    type Query{
-		bills: [Bill]
-		bills(id: ID): Bill
-		subject: [Subject]
-		person: [Person]
-		person(name: string): Person
-	}
-}
-
-export const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-})`
-
 
 const resolvers = {
     Query: {
@@ -107,13 +52,16 @@ const resolvers = {
         .then(res => res.json())
       },
 
-
-      //mine
-
     },
   }
 
-  const server = new ApolloServer({ typeDefs, resolvers });
+  const server = new ApolloServer({
+    typeDefs: './schema.graphql',
+    resolvers 
+  })
+
   server.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`);
   });
+
+  //server.start(() => console.log(`Server is running on http://localhost:4000`)) ?
