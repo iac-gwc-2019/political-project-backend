@@ -9,7 +9,6 @@ type Bill{
 	title: String
 	summary: String
 	primarySubject: String
-	lastActionDate: DateTime
 	lastActionDescription: String
 	sponsor: [Person]
 }
@@ -38,8 +37,6 @@ type Bill{
 
     type Query{
 		bills: [Bill]
-		bills(id: ID): Bill
 		subject: [Subject]
 		person: [Person]
-		person(name: string): Person
 	}
