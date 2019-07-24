@@ -36,7 +36,8 @@ type Bill{
     }
 
     type Query{
-		bills: [Bill]
-		subject: [Subject]
-		person: [Person]
+		bills: Bill
+		bill(id:ID): Bill
+		subject: Subject
+		person: Person
 	}

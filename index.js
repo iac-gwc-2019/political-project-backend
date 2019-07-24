@@ -13,42 +13,42 @@ const resolvers = {
         })
         .then(res => res.json())
       },
-      bills: (parent, args) => {
+      bill: (parent, args) => {
         const { id } = args;
-        return fetch(`${baseURL}/bills/${id}`), {
+        return fetch(`${baseURL}/bills/${id}`, {
           method: 'GET',
           headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
-        }
+        })
         .then(res => res.json())
       },
-      bills: () => {
-        return fetch(`${baseURL}/bills/subjects/${subject}`), {
-          method: 'GET',
-          headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
-        }
-        .then(res => res.json())
-      },
+      // bills: () => {
+      //   return fetch(`${baseURL}/bills/subjects/${subject}`, {
+      //     method: 'GET',
+      //     headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
+      //   })
+      //   .then(res => res.json())
+      // },
       // person separated into house and senate
       person: () => {
-        return fetch(`${baseURL}/115/senate/members`), {
+        return fetch(`${baseURL}/115/senate/members`, {
           method: 'GET',
           headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
-        }
-        .then(res => res.json())
+        })
+      .then(res => res.json())
       },
       person: () => {
-        return fetch(`${baseURL}/115/house/members`), {
+        return fetch(`${baseURL}/115/house/members`, {
           method: 'GET',
           headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
-        }
-        .then(res => res.json())
+        })
+      .then(res => res.json())
       },
       person: (parent, args) => {
         const { id } = args
-        return fetch(`${baseURL}/members/${id}`), {
+        return fetch(`${baseURL}/members/${id}`, {
           method: 'GET',
           headers: { 'X-API-Key': 'znFZ0KfsuDMSbgsmlSTlj8dqZK5Svr2hP1Ytoq6h' },
-        }
+        })
         .then(res => res.json())
       },
 

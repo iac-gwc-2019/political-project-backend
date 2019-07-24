@@ -6,25 +6,27 @@ const { ApolloServer, gql } = require('apollo-server');
 
 /**
  * Get Request to get member data from ProPublica
- * */
+ *
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const Http = new XMLHttpRequest();
 const url='https://api.propublica.org/congress/v1/115/senate/members.json';
 Http.open("GET", url);
 Http.setRequestHeader('X-API-Key', '6Gs20NIrfZJLwZ8XpEqp6c2RcLCrwYwynAScoRGI');
 Http.send();
-
+*/
+const url='https://api.propublica.org/congress/v1/115/senate/members.json';
 var jsonData = '[]';
 var results;
 var bills;
 
+/*
 Http.onreadystatechange = (e) => {
     //jsonData = Http.responseText;
     //console.log(jsonData);
     results = JSON.parse(jsonData);
     //console.log(Http.responseText);
     //results = JSON.parse(Http.responseText);
-}
+*/
 
 /*
 var json = require('./memberListData.json');
@@ -5539,8 +5541,8 @@ const meatBillsData = [
 // which ways the data can be fetched from the GraphQL server.
 const typeDefs = gql`
   # Comments in GraphQL are defined with the hash (#) symbol.
-   
-  type Member { 
+
+  type Member {
         id: String
         title: String
         short_title: String
@@ -5584,16 +5586,16 @@ const typeDefs = gql`
         state_rank: String
         lis_id: String
         missed_votes_pct: Float
-        votes_with_party_pct: Float 
+        votes_with_party_pct: Float
     }
-    
-    
+
+
    type Cosponsor {
         R: Int
         D: Int
         I: Int
    }
-  
+
   type Bill {
         bill_id: String
         bill_slug: String,
@@ -5629,7 +5631,7 @@ const typeDefs = gql`
         summary: String
         summary_short: String
     }
-    
+
   type Sponsor {
         sponsor_id: String,
         sponsor_uri: String,
@@ -5643,10 +5645,10 @@ type Result {
         bill_id: String,
         sponsor_name: String,
   }
-  
+
   # The "Query" type is the root of all GraphQL queries.
   # (A "Mutation" type will be covered later on.)
-  
+
   type Query {
     bills: [Bill]
     sponsors: [Result]

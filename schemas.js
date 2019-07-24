@@ -43,7 +43,7 @@ export default gql`
 
     type Query{
 		bills: [Bill]
-		bills(id: ID): Bill
+		bill(id: ID): Bill
 		subject: [Subject]
 		person: [Person]
 		person(name: string): Person
@@ -54,4 +54,3 @@ export const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 })`
-
