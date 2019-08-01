@@ -1,6 +1,19 @@
 import { API_KEY, BASE_URL } from '../constants';
 const fetch = require('node-fetch');
 
+function mapSubject(subject){
+  const values = {
+    id: person.id,
+    title: person.short_title,
+    party: person.party,
+    state: person.state,
+    website: person.url,
+    twitter: person.twitter_account,
+    phone: person.phone
+  }
+  return values;
+}
+
 const subjectResolver = {
   Query: {
     subject: () => {
