@@ -18,7 +18,7 @@ function mapBill(bill){
 const billResolver = {
   Query: {
     bills: () => {
-      return fetch(`${BASE_URL}/bills`, {
+      return fetch(`${BASE_URL}/bills/search.json?query= `, {
         method: 'GET', 
         headers: {'X-API-KEY': API_KEY}
       }).then((res) => {
