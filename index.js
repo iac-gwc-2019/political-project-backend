@@ -7,7 +7,8 @@ const typeDefs = require('./schema');
 const resolvers = {
   Query: {
     ...billResolver.Query,
-    ...personResolver.Query
+    ...personResolver.Query,
+    ...subjectResolver.Query
   }
 };
 

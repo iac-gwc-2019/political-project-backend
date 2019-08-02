@@ -1,16 +1,19 @@
 const { gql } = require('apollo-server');
 
-console.log('in this schema!');
-
 module.exports = gql`
 	type Bill {
+		longID: String
 		id: String
 		title: String
 		summary: String
 		primarySubject: String
-		subjects: String
+		subject: String
 		lastActionDescription: String
-		sponsor: [Person]
+		sponsorId: String
+	}
+
+	type Subject {
+		name: String
 	}
 
 	type Person {
@@ -25,8 +28,9 @@ module.exports = gql`
 
 	type Query {
 		bills: [Bill]
-		bill: Bill
-		subjects: [Bill]
+		billById(id: String!): Bill
+		billsBySubject(subject: String!): [Bill]
+		subjects: [Subject]
 		peopleHouse: [Person]
 		peopleSenate: [Person]
 	}
