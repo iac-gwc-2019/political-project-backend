@@ -1,46 +1,37 @@
 const { gql } = require('apollo-server');
 
 module.exports = gql`
-	enum Party {
-		DEMOCRAT
-		INDEPENDENT
-		REPUBLICAN
-	}
-
 	type Bill {
+		longID: String
 		id: String
 		title: String
 		summary: String
 		primarySubject: String
+		subject: String
 		lastActionDescription: String
-		sponsor: [Person]
-	}
-
-	type Person {
-		id: String
-		name: String
-		party: Party
-		state: String
-		website: String
-		address: [Address]
-		phone: String
-	}
-
-	type Address {
-		street: String
-		city: String
-		state: String
-		zip: String
+		sponsorId: String
 	}
 
 	type Subject {
 		name: String
-		bills: [Bill]
+	}
+
+	type Person {
+		id: String
+		title: String
+		party: String
+		state: String
+		website: String
+		twitter: String
+		phone: String
 	}
 
 	type Query {
 		bills: [Bill]
-		subject: Subject
-		person: Person
+		billById(id: String!): Bill
+		billsBySubject(subject: String!): [Bill]
+		subjects: [Subject]
+		peopleHouse: [Person]
+		peopleSenate: [Person]
 	}
 `;
