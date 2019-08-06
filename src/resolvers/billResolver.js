@@ -10,7 +10,7 @@ function mapBill(bill){
     subject: bill.primary_subject,
     latestActionDescription: bill.latest_major_action,
     latestActionDate: bill.latest_major_action_date,
-    sponsor_id: bill.sponsor_id
+    sponsorId: bill.sponsor_id
   }
   return values;
 }
