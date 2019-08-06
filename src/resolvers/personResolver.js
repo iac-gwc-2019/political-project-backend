@@ -5,6 +5,8 @@ function mapPerson(person){
   const values = {
     id: person.id,
     title: person.short_title,
+    firstName: person.first_name,
+    lastName: person.last_name,
     party: person.party,
     state: person.state,
     website: person.url,
@@ -17,14 +19,14 @@ function mapPerson(person){
 function mapPersonId(person){
   const values = {
     id: person.member_id,
-    title: person.short_title,
+    title: person.roles[0].title,
     firstName: person.first_name,
     lastName: person.last_name,
-    party: person.party,
-    state: person.state,
+    party: person.current_party,
+    state: person.roles[0].state,
     website: person.url,
     twitter: person.twitter_account,
-    phone: person.phone
+    phone: person.roles[0].phone
   }
   return values;
 }
@@ -55,6 +57,8 @@ const personResolver = {
         return newPersonSenateArr;
       })
     },
+
+// TODO: getPerson -> summary??
     personById: (obj, args, context, info) => {
       return fetch(`${BASE_URL}/members/${args.memberId}`, {
         method: 'GET', 
@@ -63,10 +67,8 @@ const personResolver = {
         return res.json()
       }).then((response) => {
         const unpacked = response.results;
-        console.log(unpacked);
         const newPersonArr = unpacked.map(mapPersonId);
-        console.log(newPersonArr);
-        return newPersonArr;
+        return newPersonArr[0];
       })
     }
   }

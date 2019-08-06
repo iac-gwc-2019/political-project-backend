@@ -19,7 +19,6 @@ const subjectResolver = {
       }).then((response) => {
         const unpacked = response.results;
         const newSubjectArr = unpacked[0].subjects.map(mapSubject);
-        console.log(newSubjectArr);
         return newSubjectArr;
       })
     }

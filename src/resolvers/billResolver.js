@@ -53,7 +53,6 @@ const billResolver = {
         return newBillsArr;
       })
     },
-    // broken rn, figuring that out tonight
     billsCosponsoredBy: (obj, args, context, info) => {
       return fetch(`${BASE_URL}/members/${args.sponsorId}/bills/cosponsored`, {
         method: 'GET', 

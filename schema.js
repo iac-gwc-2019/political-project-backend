@@ -20,7 +20,7 @@ module.exports = gql`
 	type Person {
 		id: String
 		name: String
-		party: Party
+		party: String
 		title: String
 		firstName: String
 		lastName: String
