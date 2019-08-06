@@ -3,14 +3,15 @@ const fetch = require('node-fetch');
 
 function mapBill(bill){
   const values = {
-    longID: bill.bill_id,
-    id: bill.bill_slug,
-    title: bill.title,
+    bill_name: bill.title,
+    primary_subject: bill.primary_subject,
+    bill_id: bill.bill_id,
     summary: bill.summary,
-    subject: bill.primary_subject,
-    latestActionDescription: bill.latest_major_action,
-    latestActionDate: bill.latest_major_action_date,
-    sponsor_id: bill.sponsor_id
+    summary_short: bill.summary_short,
+    latest_major_action_date: bill.latest_major_action_date,
+    latest_major_action: bill.latest_major_action,
+    billSlug: bill.bill_slug,
+    sponsorId: bill.sponsor_id
   }
   return values;
 }
@@ -42,7 +43,7 @@ const billResolver = {
       })
     },
     billsBySubject: (obj, args, context, info) => {
-      return fetch(`${BASE_URL}/bills/subjects/${args.subject}`, {
+      return fetch(`${BASE_URL}/bills/subjects/${args.primary_subject}`, {
         method: 'GET', 
         headers: {'X-API-KEY': API_KEY}
       }).then((res) => {
@@ -50,6 +51,18 @@ const billResolver = {
       }).then((response) => {
         const unpacked = response.results;
         const newBillsArr = unpacked.map(mapBill);
+        return newBillsArr;
+      })
+    },
+    billsCosponsoredBy: (obj, args, context, info) => {
+      return fetch(`${BASE_URL}/members/${args.sponsorId}/bills/cosponsored`, {
+        method: 'GET', 
+        headers: {'X-API-KEY': API_KEY}
+      }).then((res) => {
+        return res.json()
+      }).then((response) => {
+        const unpacked = response.results;
+        const newBillsArr = unpacked[0].bills.map(mapBill);
         return newBillsArr;
       })
     }

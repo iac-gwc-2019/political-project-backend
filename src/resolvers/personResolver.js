@@ -3,13 +3,30 @@ const fetch = require('node-fetch');
 
 function mapPerson(person){
   const values = {
-    id: person.id,
-    title: person.short_title,
+    short_title: person.short_title,
+    first_name: person.first_name,
+    last_name: person.last_name,
     party: person.party,
     state: person.state,
     website: person.url,
-    twitter: person.twitter_account,
-    phone: person.phone
+    phone: person.phone,
+    twitter_account: person.twitter_account,
+    id: person.id,
+  }
+  return values;
+}
+
+function mapPersonId(person){
+  const values = {
+    short_title: person.roles[0].title,
+    first_name: person.first_name,
+    last_name: person.last_name,
+    party: person.current_party,
+    state: person.roles[0].state,
+    website: person.url,
+    phone: person.roles[0].phone,
+    twitter_account: person.twitter_account,
+    id: person.member_id,
   }
   return values;
 }
@@ -38,6 +55,20 @@ const personResolver = {
         const unpacked = response.results;
         const newPersonSenateArr = unpacked[0].members.map(mapPerson);
         return newPersonSenateArr;
+      })
+    },
+
+// TODO: getPerson -> summary??
+    personById: (obj, args, context, info) => {
+      return fetch(`${BASE_URL}/members/${args.memberId}`, {
+        method: 'GET', 
+        headers: {'X-API-KEY': API_KEY}
+      }).then((res) => {
+        return res.json()
+      }).then((response) => {
+        const unpacked = response.results;
+        const newPersonArr = unpacked.map(mapPersonId);
+        return newPersonArr[0];
       })
     }
   }
