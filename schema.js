@@ -2,32 +2,31 @@ const { gql } = require('apollo-server');
 
 module.exports = gql`
 	type Bill {
-		longID: String
-		id: String
-		title: String
+		bill_name: String
+		primary_subject: String
+		bill_id: String
 		summary: String
-		primarySubject: String
-		subject: String
-		lastActionDescription: String
-		lastActionDate: String
+		summary_short: String
+		latest_major_action_date: String
+		latest_major_action: String
+		billSlug: String
 		sponsorId: String
 	}
 
 	type Subject {
-		name: String
+		subject_name: String
 	}
 
 	type Person {
-		id: String
-		name: String
+		short_title: String
+		first_name: String
+		last_name: String
 		party: String
-		title: String
-		firstName: String
-		lastName: String
 		state: String
 		website: String
-		twitter: String
 		phone: String
+		twitter_account: String
+		id: String
 	}
 
 	type Query {

@@ -3,30 +3,30 @@ const fetch = require('node-fetch');
 
 function mapPerson(person){
   const values = {
-    id: person.id,
-    title: person.short_title,
-    firstName: person.first_name,
-    lastName: person.last_name,
+    short_title: person.short_title,
+    first_name: person.first_name,
+    last_name: person.last_name,
     party: person.party,
     state: person.state,
     website: person.url,
-    twitter: person.twitter_account,
-    phone: person.phone
+    phone: person.phone,
+    twitter_account: person.twitter_account,
+    id: person.id,
   }
   return values;
 }
 
 function mapPersonId(person){
   const values = {
-    id: person.member_id,
-    title: person.roles[0].title,
-    firstName: person.first_name,
-    lastName: person.last_name,
+    short_title: person.roles[0].title,
+    first_name: person.first_name,
+    last_name: person.last_name,
     party: person.current_party,
     state: person.roles[0].state,
     website: person.url,
-    twitter: person.twitter_account,
-    phone: person.roles[0].phone
+    phone: person.roles[0].phone,
+    twitter_account: person.twitter_account,
+    id: person.member_id,
   }
   return values;
 }

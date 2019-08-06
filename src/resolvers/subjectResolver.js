@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 function mapSubject(subject){
   const subjectValues = {
-    name: subject.name,
+    subject_name: subject.name,
   }
   return subjectValues;
 }
