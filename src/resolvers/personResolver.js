@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 function mapPerson(person){
   const values = {
     short_title: person.short_title,
+    title: person.title,
     first_name: person.first_name,
     last_name: person.last_name,
     party: person.party,
@@ -19,6 +20,7 @@ function mapPerson(person){
 function mapPersonId(person){
   const values = {
     short_title: person.roles[0].title,
+    title: person.title,
     first_name: person.first_name,
     last_name: person.last_name,
     party: person.current_party,
