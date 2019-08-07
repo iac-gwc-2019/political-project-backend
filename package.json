@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel --presets es2015 -d lib/ src",
-    "start": "npm run build && node index.js"
+    "start": "npm run build && NODE_ENV=development node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/iac-gwc-2019/political-project-backend#readme",
   "dependencies": {
-    "apollo-server": "^2.7.0",
-    "apollo-server-express": "^2.7.0",
+    "apollo-server-express": "^2.8.1",
     "cross-fetch": "^3.0.4",
     "es6": "0.0.7",
     "express": "^4.17.1",
