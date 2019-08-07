@@ -34,7 +34,7 @@ module.exports = gql`
 		subject: Subject
 		person: Person
 		billById(id: String!): Bill
-		billsBySubject(subject: String!): [Bill]
+		billsBySubject(primary_subject: String!): [Bill]
 		billsCosponsoredBy(sponsorId: String!): [Bill]
 		subjects: [Subject]
 		peopleHouse: [Person]
