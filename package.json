@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel --presets es2015 -d lib/ src",
     "start": "npm run build && node index.js"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iac-gwc-2019/political-project-backend.git"
