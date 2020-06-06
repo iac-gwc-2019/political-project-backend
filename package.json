@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/iac-gwc-2019/political-project-backend#readme",
   "dependencies": {
-    "apollo-server": "^2.8.1",
+    "apollo-server": "^2.14.2",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "cross-fetch": "^3.0.4",
