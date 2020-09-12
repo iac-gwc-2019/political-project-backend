@@ -28,7 +28,7 @@
     "express-graphql": "^0.9.0",
     "graphql": "^14.4.2",
     "graphql-yoga": "^1.18.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "relay-local-schema": "^0.8.0",
     "request": "^2.88.0"
   }
